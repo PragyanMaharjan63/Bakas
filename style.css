@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.Pname{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.hamburger{
+    display: none;
+}
+
+.card{
+    transition: all 300ms ease-in-out;
+}
+
+
+.card:hover{
+    transform: scale(1.02);
+}
+
+@media (max-width: 860px) {
+    .card{
+        flex-grow: 1;
+    }
+    .main{
+
+        width: 100vw;
+    }
+}
+
+@media (max-width:700px) {
+
+    .hamburger{
+        display:block;
+        right: 0;
+    }
+    .search-input{
+        display: block;
+    }
+    .options{
+        display: none;
+    }
+}
+
+@media (max-width:500px) {
+    .logo-text
+    {
+        display: none;
+    }
+    .search-input
+    {
+        width: 50vw;
+    }
+}
+
+
+@media (max-width:457px) {
+    .card{
+        flex: 1 1 100%
+    }
+}
+

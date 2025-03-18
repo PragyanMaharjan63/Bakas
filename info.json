@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "image": "./images/headphones.webp",
+        "productName": "X-AGE ConvE Up Beat Sport 2 Bluetooth Headphone - (XBH04)",
+        "cost": 2034,
+        "location": "Kathmandu"
+    },
+    {
+        "id": 2,
+        "image": "./images/17b36cb043a5803741c2d62b9daacf9f.jpg_720x720q80.jpg_.webp",
+        "productName": "Kick NEKXA Buds Z10 True Wireless Ear Earbuds with 45H Playtime, 45ms Extreme Low Latency Mode, Quad ENC Mic, Crafted in Nepal, 10mm Bass Drivers, IPX5",
+        "cost": 530,
+        "location": "Bagmati, Kathmandu"
+    },
+        {
+        "id": 3,
+        "image": "./images/mobilestand.webp",
+        "productName": "Metal Body Mobile Phone Stand for Desk/Bed, 360-Degree Rotating, Adjustable Foldable Cell Phone Holder",
+        "cost": 209,
+        "location": "Bagmati, Kathmandu"
+    },
+            {
+        "id": 4,
+        "image": "./images/earphone.webp",
+        "productName": "Ring Pro in-Ear Earphones with Mic, Vocals & Rich Bass Wired Headset (Black, In the Ear)",
+        "cost": 999,
+        "location": "Bagmati, Kathmandu"
+    },
+                {
+        "id": 1,
+        "image": "./images/default.png",
+        "productName": "sdf",
+        "cost": 530,
+        "location": "Bagmati, Kathmandu"
+    },
+                    {
+        "id": 1,
+        "image": "./images/default.png",
+        "productName": "sdft",
+        "cost": 530,
+        "location": "Bagmati, Kathmandu"
+    },
+                        {
+        "id": 1,
+        "image": "./images/default.png",
+        "productName": "Sodflt",
+        "cost": 530,
+        "location": "Bagmati, Kathmandu"
+    },
+  {
+        "id": 1,
+        "image": "./images/default.png",
+        "productName": "Sondult",
+        "cost": 530,
+        "location": "Bagmati, Kathmandu"
+    }
+    
+]
