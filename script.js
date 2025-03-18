@@ -19,7 +19,7 @@ let getData = async () =>{
     let data = await fetch("./info.json");
     let response = await data.json()
     response.forEach(item => {        
-        cards.innerHTML = cards.innerHTML + ` <div class="card m-1 rounded-xl border-b-2 border break-words overflow-hidden w-56 hover:bg-gray-300">
+        cards.innerHTML = cards.innerHTML + ` <div class="card m-1 rounded-xl border-b-2 border break-words overflow-hidden w-56 hover:cursor-pointer" onClick="openmodel(${item.id})">
         <div class="flex justify-center">
         <img src="${item.image}" class="size-52 m-2">
         </div>
@@ -34,6 +34,35 @@ let getData = async () =>{
           </div>
         </div>
         </div>`
+
+        console.log(item.id)
         });
 }
 getData()
+
+const products = document.querySelector(".products");
+const info = document.querySelector(".showinfo");
+
+let description = []
+async function getDescription() {
+  let data = await fetch("http://127.0.0.1:5500/description.json");
+  let response = await data.json();
+  // console.log(response[0].description)
+  response.forEach(item => {
+    description.push(item.description);
+  })
+}
+getDescription()
+
+
+function openmodel(cardID){
+  // console.log(cardID);
+  console.log(description[cardID])
+  products.classList.add("hidden");
+  info.classList.remove("hidden");
+
+
+
+}
+
+

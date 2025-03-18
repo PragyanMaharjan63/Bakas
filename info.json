@@ -1,58 +1,58 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "image": "./images/headphones.webp",
         "productName": "X-AGE ConvE Up Beat Sport 2 Bluetooth Headphone - (XBH04)",
         "cost": 2034,
         "location": "Kathmandu"
     },
     {
-        "id": 2,
+        "id": 1,
         "image": "./images/17b36cb043a5803741c2d62b9daacf9f.jpg_720x720q80.jpg_.webp",
         "productName": "Kick NEKXA Buds Z10 True Wireless Ear Earbuds with 45H Playtime, 45ms Extreme Low Latency Mode, Quad ENC Mic, Crafted in Nepal, 10mm Bass Drivers, IPX5",
         "cost": 530,
         "location": "Bagmati, Kathmandu"
     },
         {
-        "id": 3,
+        "id": 2,
         "image": "./images/mobilestand.webp",
         "productName": "Metal Body Mobile Phone Stand for Desk/Bed, 360-Degree Rotating, Adjustable Foldable Cell Phone Holder",
         "cost": 209,
         "location": "Bagmati, Kathmandu"
     },
             {
-        "id": 4,
+        "id": 3,
         "image": "./images/earphone.webp",
         "productName": "Ring Pro in-Ear Earphones with Mic, Vocals & Rich Bass Wired Headset (Black, In the Ear)",
         "cost": 999,
         "location": "Bagmati, Kathmandu"
     },
                 {
-        "id": 1,
-        "image": "./images/default.png",
-        "productName": "sdf",
-        "cost": 530,
+        "id": 4,
+        "image": "./images/shoe.webp",
+        "productName": "Brown Leather Chelsea Long Ankle Boots For Men (Nep Mart)",
+        "cost": 1199,
         "location": "Bagmati, Kathmandu"
     },
                     {
-        "id": 1,
-        "image": "./images/default.png",
-        "productName": "sdft",
-        "cost": 530,
+        "id": 5,
+        "image": "./images/e88efa93c83088388f543f0c54d925d9.jpg_720x720q80.jpg_.webp",
+        "productName": "100w Transparent chip 3 In1 super fast charging Data Cable with lighting/Type c/Micro USB",
+        "cost": 138,
         "location": "Bagmati, Kathmandu"
     },
                         {
-        "id": 1,
-        "image": "./images/default.png",
-        "productName": "Sodflt",
-        "cost": 530,
+        "id": 6,
+        "image": "./images/69b8c19794729813329441e242bbdc57.jpg_720x720q80.jpg_.webp",
+        "productName": "Prime Picks Desktop Mobile Phone Holder Mount Stand Flexible Foldable Portable | Foldable Mobile Stand Table top Stand Adjustable Phone Holder",
+        "cost": 220,
         "location": "Bagmati, Kathmandu"
     },
   {
-        "id": 1,
-        "image": "./images/default.png",
-        "productName": "Sondult",
-        "cost": 530,
+        "id": 7,
+        "image": "./images/8edc471a4efefe916b1937e2055c007c.jpg_720x720q80.jpg_.webp",
+        "productName": "T800 Ultra Smart Watch For Unisex | Color HD Display | Included Wireless Charger",
+        "cost": 750,
         "location": "Bagmati, Kathmandu"
     }
     

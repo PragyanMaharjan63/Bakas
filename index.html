@@ -8,54 +8,59 @@
     <link rel="shortcut icon" href="./icons/box.png" type="image/png" />
   </head>
   <body class="flex justify-center">
-    <div class="main w-[80vw]">
+    <div class="main w-[80vw]"> 
 
-        <nav class="relative">
-            <div
-        class="nav flex w-full justify-between transition-all duration-1000"
-      >
-        <div class="m-2 flex relative logo">
-            <img src="./icons/box.png" class="size-10" alt="logo" />
-            <p class="p-2 logo-text font-bold text-xl">BAKAS</p>
-        </div>
-        <div
-          class="search transition-all ease-in rounded-full flex m-2 border-b-2 h-12 overflow-hidden"
-        >
-        <img src="./icons/search.svg" class="size-6 m-3" />
-        <input
-            type="text"
-            placeholder="Enter the name of item"
-            class="search-input overflow-hidden p-3 outline-none"
-          />
-        </div>
-        <div class="options">
-            <ul class="flex">
-            <li class="p-4 font-bold hover:underline hover:cursor-pointer">Home</li>
-            <li class="p-4 font-bold hover:underline hover:cursor-pointer">Cart</li>
-            <li class="p-4 font-bold hover:underline hover:cursor-pointer">Contact us</li>
-        </ul>
-        </div>
-        
-        <div class="hamburger">
-            <img src="./icons/hamburger.svg" class="size-8 m-4" />
-        </div>
-        <div
-          class="absolute transition-all ease-in-out hamburger-menu bg-yellow-600 right-0 h-screen w-[50vw] opacity-0 -z-10"
-        >
-        <div class="cross absolute right-0">
-            <img src="./icons/x.svg" class="size-8 m-4" />
-          </div>
-          <ul>
-              <li class="p-4 hover:bg-yellow-500">Home</li>
-              <li class="p-4 hover:bg-yellow-500">Cart</li>
-              <li class="p-4 hover:bg-yellow-500">Contact us</li>
-            </ul>
-        </div>
+    
+      <nav class="relative">
+          <div
+      class="nav flex w-full justify-between transition-all duration-1000"
+    >
+      <div class="m-2 flex relative logo">
+          <img src="./icons/box.png" class="size-10" alt="logo" />
+          <p class="p-2 logo-text font-bold text-xl">BAKAS</p>
       </div>
-    </nav>
+      <div
+        class="search transition-all ease-in rounded-full flex m-2 border-b-2 h-12 overflow-hidden"
+      >
+      <img src="./icons/search.svg" class="size-6 m-3" />
+      <input
+          type="text"
+          placeholder="Enter the name of item"
+          class="search-input overflow-hidden p-3 outline-none"
+        />
+      </div>
+      <div class="options">
+          <ul class="flex">
+          <li class="p-4 font-bold hover:underline hover:cursor-pointer">Home</li>
+          <li class="p-4 font-bold hover:underline hover:cursor-pointer">Cart</li>
+          <li class="p-4 font-bold hover:underline hover:cursor-pointer">Contact us</li>
+      </ul>
+      </div>
+      
+      <div class="hamburger">
+          <img src="./icons/hamburger.svg" class="size-8 m-4" />
+      </div>
+      <div
+        class="absolute transition-all ease-in-out hamburger-menu bg-yellow-600 right-0 h-screen w-[50vw] opacity-0 -z-10"
+      >
+      <div class="cross absolute right-0">
+          <img src="./icons/x.svg" class="size-8 m-4" />
+        </div>
+        <ul>
+            <li class="p-4 hover:bg-yellow-500">Home</li>
+            <li class="p-4 hover:bg-yellow-500">Cart</li>
+            <li class="p-4 hover:bg-yellow-500">Contact us</li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="products">
     <div class="cards flex flex-wrap w-full">
 
-      <div class="card hidden m-1 rounded-xl border-b-2 border break-words overflow-hidden w-56 hover:bg-gray-300">
+      <div class="card hidden m-1 rounded-xl border-b-2 border break-words overflow-hidden w-56">
         <div class="flex justify-center">
           <img src="./icons/box.png" class="img size-52 m-2">
         </div>
@@ -73,6 +78,18 @@
     </div>
     
 </div>
+
+<div class="showinfo hidden">
+  <div class="heading m-6">
+    <p class="title">Product name</p>
+  </div>
+    <div class="flex">
+      <img src="./images/default.png" class="size-96 border m-3" >
+      <p class="productDes m-3">product description</p>
+    </div>
+  </div>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>
