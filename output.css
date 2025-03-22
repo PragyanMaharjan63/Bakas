@@ -9,13 +9,22 @@
     --color-yellow-500: oklch(0.795 0.184 86.047);
     --color-yellow-600: oklch(0.681 0.162 75.834);
     --color-yellow-900: oklch(0.421 0.095 57.708);
+    --color-blue-500: oklch(0.623 0.214 259.815);
     --color-gray-600: oklch(0.446 0.03 256.802);
+    --color-neutral-400: oklch(0.708 0 0);
+    --color-neutral-600: oklch(0.439 0 0);
+    --color-white: #fff;
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -204,8 +213,23 @@
   .m-4 {
     margin: calc(var(--spacing) * 4);
   }
+  .m-5 {
+    margin: calc(var(--spacing) * 5);
+  }
   .m-6 {
     margin: calc(var(--spacing) * 6);
+  }
+  .mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
+  }
+  .mx-3 {
+    margin-inline: calc(var(--spacing) * 3);
+  }
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
+  .my-4 {
+    margin-block: calc(var(--spacing) * 4);
   }
   .flex {
     display: flex;
@@ -220,6 +244,10 @@
     width: calc(var(--spacing) * 6);
     height: calc(var(--spacing) * 6);
   }
+  .size-7 {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+  }
   .size-8 {
     width: calc(var(--spacing) * 8);
     height: calc(var(--spacing) * 8);
@@ -227,10 +255,6 @@
   .size-10 {
     width: calc(var(--spacing) * 10);
     height: calc(var(--spacing) * 10);
-  }
-  .size-32 {
-    width: calc(var(--spacing) * 32);
-    height: calc(var(--spacing) * 32);
   }
   .size-52 {
     width: calc(var(--spacing) * 52);
@@ -246,8 +270,20 @@
   .h-screen {
     height: 100vh;
   }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
+  }
   .w-56 {
     width: calc(var(--spacing) * 56);
+  }
+  .w-62 {
+    width: calc(var(--spacing) * 62);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
   }
   .w-\[50vw\] {
     width: 50vw;
@@ -273,6 +309,9 @@
   .resize {
     resize: both;
   }
+  .flex-col {
+    flex-direction: column;
+  }
   .flex-wrap {
     flex-wrap: wrap;
   }
@@ -288,6 +327,9 @@
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
@@ -299,8 +341,20 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
   }
+  .border-neutral-400 {
+    border-color: var(--color-neutral-400);
+  }
+  .border-neutral-600 {
+    border-color: var(--color-neutral-600);
+  }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
   .bg-yellow-600 {
     background-color: var(--color-yellow-600);
+  }
+  .bg-yellow-900 {
+    background-color: var(--color-yellow-900);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -315,6 +369,14 @@
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
@@ -328,6 +390,9 @@
   }
   .text-gray-600 {
     color: var(--color-gray-600);
+  }
+  .text-white {
+    color: var(--color-white);
   }
   .text-yellow-900 {
     color: var(--color-yellow-900);
@@ -433,6 +498,12 @@ nav {
   .options {
     display: none;
   }
+  #productdescription {
+    flex-direction: column;
+  }
+  .productTitle {
+    width: 100vw;
+  }
 }
 @media (max-width:500px) {
   .logo-text {
@@ -445,6 +516,12 @@ nav {
 @media (max-width:457px) {
   .card {
     flex: 1 1 100%;
+  }
+}
+@media (max-width:400px) {
+  #productImage {
+    width: 320px;
+    height: 320px;
   }
 }
 @property --tw-rotate-x {

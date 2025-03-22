@@ -51,6 +51,12 @@ nav{
     .options{
         display: none;
     }
+    #productdescription{
+        flex-direction: column;
+    }
+    .productTitle{
+        width: 100vw;
+    }
 }
 
 @media (max-width:500px) {
@@ -68,6 +74,12 @@ nav{
 @media (max-width:457px) {
     .card{
         flex: 1 1 100%
+    }
+}
+@media (max-width:400px) {
+    #productImage{
+        width: 320px;
+        height: 320px; 
     }
 }
 

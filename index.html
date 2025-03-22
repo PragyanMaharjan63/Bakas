@@ -15,12 +15,12 @@
           <div
       class="nav flex w-full justify-between transition-all duration-1000"
     >
-      <div class="m-2 flex relative logo">
+      <div class="m-2 flex relative logo hover:cursor-pointer" onclick="home()">
           <img src="./icons/box.png" class="size-10" alt="logo" />
           <p class="p-2 logo-text font-bold text-xl">BAKAS</p>
       </div>
       <div
-        class="search transition-all ease-in rounded-full flex m-2 border-b-2 h-12 overflow-hidden"
+        class="search transition-all ease-in rounded-full flex m-2 border border-neutral-400 h-12 overflow-hidden"
       >
       <img src="./icons/search.svg" class="size-6 m-3" />
       <input
@@ -57,12 +57,12 @@
 
 
 
-  <div class="products">
+  <div class="products hidden">
     <div class="cards flex flex-wrap w-full">
 
       <div class="card hidden m-1 rounded-xl border-b-2 border break-words overflow-hidden w-56">
         <div class="flex justify-center">
-          <img src="./icons/box.png" class="img size-52 m-2">
+          <img src="./icons/box.png" class="img size-7 m-2">
         </div>
         <div class="m-2">    
           <p class="font-bold m-2 Pname">Productsdfsdfsdfsdfsdfsdfsdfsdfsdf Name</p>
@@ -79,15 +79,29 @@
     
 </div>
 
-<div class="showinfo hidden">
-  <div class="heading m-6">
-    <p class="title">Product name</p>
-  </div>
-    <div class="flex">
-      <img src="./images/default.png" class="size-96 border m-3" >
-      <p class="productDes m-3">product description</p>
+<div class="showinfo ">
+  <div class="flex border border-neutral-600 m-1 rounded-xl" id="productdescription">
+    <div class="size-96 flex m-3" id="productImage">
+      
     </div>
-  </div>
+    <div class="heading flex flex-col justify-between m-6 w-[50vw] productTitle">
+      <p class="font-bold text-2xl" id="product-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque quis laudantium ipsa possimus ea, recusandae reprehenderit quam consectetur. Quae.</p>
+      <p class="my-2 text-3xl font-bold text-yellow-900" id="product-price">price</p>
+      <div>
+        <p>Quantity</p>
+        <div class="flex my-2">
+          <button class="m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-yellow-900">Shop Now</button>
+          <button class="m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-blue-500">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+      <div class="border border-neutral-600 m-1 rounded-xl">
+        <p class="m-3 font-bold text-xl">DESCRIPTION</p>
+        <p class=" m-3" id="productDes">description</p>
+      </div>
+    </div>
 </div>
 
     <script src="script.js"></script>

@@ -14,12 +14,14 @@ cross.addEventListener("click", ()=>{
 })
 
 let cards = document.querySelector(".cards");
-
+let price =[]
+let productName = []
+let productImage = []
 let getData = async () =>{
     let data = await fetch("./info.json");
     let response = await data.json()
     response.forEach(item => {        
-        cards.innerHTML = cards.innerHTML + ` <div class="card m-1 rounded-xl border-b-2 border break-words overflow-hidden w-56 hover:cursor-pointer" onClick="openmodel(${item.id})">
+        cards.innerHTML = cards.innerHTML + ` <div class="card m-1 rounded-xl  border border-neutral-400 break-words overflow-hidden w-72 hover:cursor-pointer" onClick="openmodel(${item.id})">
         <div class="flex justify-center">
         <img src="${item.image}" class="size-52 m-2">
         </div>
@@ -34,14 +36,21 @@ let getData = async () =>{
           </div>
         </div>
         </div>`
-
-        console.log(item.id)
+        price.push(item.cost)
+        productName.push(item.productName);
+        productImage.push(item.image)
         });
 }
 getData()
 
 const products = document.querySelector(".products");
 const info = document.querySelector(".showinfo");
+
+function home(){
+  products.classList.remove("hidden")
+  info.classList.add("hidden")
+}
+
 
 let description = []
 async function getDescription() {
@@ -56,13 +65,18 @@ getDescription()
 
 
 function openmodel(cardID){
-  // console.log(cardID);
-  console.log(description[cardID])
   products.classList.add("hidden");
   info.classList.remove("hidden");
 
+  const title = document.getElementById("product-title");
+  const Pdesc= document.getElementById("productDes");
+  const Pimage = document.getElementById("productImage");
+  const pPrice = document.getElementById("product-price");
 
-
+  title.innerText = productName[cardID]
+  Pdesc.innerText = description[cardID]
+  pPrice.innerText = "RS." + price[cardID]
+  Pimage.innerHTML = `<img src="${productImage[cardID]}" >`
 }
 
 
