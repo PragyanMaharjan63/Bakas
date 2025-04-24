@@ -3,15 +3,19 @@ const hamburgerMenu = document.querySelector(".hamburger-menu");
 const cross  = document.querySelector(".cross");
 // w-[50vw] opacity-0 -z-10
 
+function hamburgerClose(){
+  // console.log("closed");
+  hamburgerMenu.classList.add("w-[50vw]","opacity-0","-z-10");
+  hamburgerMenu.classList.remove("w-[100vw]","opacity-100","z-10");
+}
+
+
 hamburger.addEventListener("click", ()=>{
-    console.log("clicked");
+    // console.log("clicked");
     hamburgerMenu.classList.remove("w-[50vw]","opacity-0","-z-10");
     hamburgerMenu.classList.add("w-[100vw]","opacity-100","z-10");
 })
-cross.addEventListener("click", ()=>{
-    hamburgerMenu.classList.add("w-[50vw]","opacity-0","-z-10");
-    hamburgerMenu.classList.remove("w-[100vw]","opacity-100","z-10");
-})
+cross.addEventListener("click", ()=>hamburgerClose())
 
 let cards = document.querySelector(".cards");
 let price =[]
