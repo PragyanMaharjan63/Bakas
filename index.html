@@ -4,59 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bakas</title>
-    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
       <link rel="shortcut icon" href="./icons/box.png" type="image/png" />
   </head>
   <body class="flex justify-center">
     <div class="main w-[80vw]"> 
-
-    
-      <nav class="relative">
-          <div
-      class="nav flex w-full justify-between transition-all duration-1000"
-    >
-      <div class="m-2 flex relative logo hover:cursor-pointer" onclick="home();hamburgerClose()">
-          <img src="./icons/box.png" class="size-10" alt="logo" />
-          <p class="p-2 logo-text font-bold text-xl">BAKAS</p>
-      </div>
-      <div
-        class="search transition-all ease-in rounded-full flex m-2 border border-neutral-400 h-12 overflow-hidden"
-      >
-      <img src="./icons/search.svg" class="size-6 m-3" />
-      <input
-          type="text"
-          placeholder="Enter the name of item"
-          class="search-input overflow-hidden p-3 outline-none"
-        />
-      </div>
-      <div class="options">
-          <ul class="flex">
-          <li class="home p-4 font-bold hover:underline hover:cursor-pointer">Home</li>
-          <li class="cart p-4 font-bold hover:underline hover:cursor-pointer">Cart</li>
-          <li class="contactUs p-4 font-bold hover:underline hover:cursor-pointer">Contact us</li>
-      </ul>
-      </div>
-      
-      <div class="hamburger">
-          <img src="./icons/hamburger.svg" class="size-8 m-4" />
-      </div>
-      <div
-        class="absolute transition-all ease-in-out hamburger-menu bg-yellow-600 right-0 h-screen w-[50vw] opacity-0 -z-10"
-      >
-      <div class="cross absolute right-0">
-          <img src="./icons/x.svg" class="size-8 m-4" />
-        </div>
-        <ul>
-            <li class="home p-4 hover:bg-yellow-500" onclick="home();hamburgerClose()">Home</li>
-            <li class="cart p-4 hover:bg-yellow-500">Cart</li>
-            <li class="contactUs p-4 hover:bg-yellow-500">Contact us</li>
-          </ul>
-      </div>
-    </div>
-  </nav>
-
-
-
+      <div id="nav-bar-replace"></div>
   <div class="products">
     <div class="cards flex flex-wrap w-full justify-center">
 
