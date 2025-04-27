@@ -24,6 +24,7 @@ let productImage = []
 let getData = async () =>{
     let data = await fetch("./info.json");
     let response = await data.json()
+    console.log(response)
     response.forEach(item => {        
         cards.innerHTML = cards.innerHTML + ` <div class="card m-1 rounded-xl  border border-neutral-400 break-words overflow-hidden w-72 hover:cursor-pointer" onClick="openmodel(${item.id})">
         <div class="flex justify-center">
@@ -51,8 +52,7 @@ const products = document.querySelector(".products");
 const info = document.querySelector(".showinfo");
 
 function home(){
-  products.classList.remove("hidden")
-  info.classList.add("hidden")
+  window.location.href = "index.html"
 }
 
 
@@ -69,10 +69,13 @@ getDescription()
 
 
 function openmodel(cardID){
-  products.classList.add("hidden");
-  info.classList.remove("hidden");
+  // products.classList.add("hidden");
+  // info.classList.remove("hidden");
+
+  window.location.href="productDesc.html"
 
   const title = document.getElementById("product-title");
+  console.log(title);
   const Pdesc= document.getElementById("productDes");
   const Pimage = document.getElementById("productImage");
   const pPrice = document.getElementById("product-price");

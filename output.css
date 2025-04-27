@@ -421,6 +421,9 @@ nav {
   transform: scale(1.02);
 }
 @media (max-width: 1111px) {
+  body {
+    width: 100vw;
+  }
   .card {
     flex-grow: 1;
   }
