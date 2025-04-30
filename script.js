@@ -209,7 +209,7 @@ function cartpage() {
   else{
   cart.forEach((product) => {
     cards.innerHTML = cards.innerHTML +
-      ` <div class="flex p-6 my-1 rounded-xl border-b-2 border border-neutral-600">
+      ` <div class="flex p-6 my-1 rounded-xl border-b-2 border border-neutral-600" onclick="productDescription(${product})">
     <img
           src="${productImage[product]}"
           alt="icon"
