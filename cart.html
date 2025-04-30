@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Cart</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/output.css" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="shortcut icon" href="./icons/box.png" type="image/png" />
-</head>
-<body class="flex justify-center">
-    <div class="main w-[80vw]"> 
-        <div id="nav-bar-replace"></div>
-        <div class="flex p-6 rounded-xl border-b-2 border border-neutral-600">
-            <img src="./images/default.png" alt="icon" class="mx-2 size-32">
-            <div class="flex flex-col justify-between mx-2">
-                <p class="font-bold text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam quasi, fugit reiciendis, placeat eius neque ullam accusantium nostrum sit quis praesentium nisi distinctio amet dolor debitis dolorem officia! Harum quas qui fuga. Suscipit praesentium rerum deleniti odio, velit culpa.</p>
-                <div class="flex flex-row justify-between">
-                    <div class="flex flex-row justify-center">
-                        <img class="size-7" src="./icons/pin.svg" alt="pin">
-                        <p class="text-gray-600">
-                            Location,Location</p>
-                        </div>
-                    <button class="productBtn m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-yellow-900">Shop Now</button>
-                </div>
+  </head>
+  <body class="flex justify-center">
+    <div class="main">
+      <div id="nav-bar-replace"></div>
+      <div class="cartCards">
+      <div class="hidden p-6 rounded-xl border-b-2 border border-neutral-600">
+        <img
+          src="./images/default.png"
+          alt="icon"
+          class="product-image mx-2 h-32 w-32"
+        />
+        <div class="flex flex-col justify-between mx-2">
+          <p class="product-description-cart font-bold text-lg">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            quasi, fugit reiciendis, placeat eius neque ullam accusantium
+            nostrum sit quis praesentium nisi distinctio amet dolor debitis
+            dolorem officia! Harum quas qui fuga. Suscipit praesentium rerum
+            deleniti odio, velit culpa.
+          </p>
+            <div class="productCardBottom flex justify-between">
+              <p class="font-bold text-yellow-900 text-2xl">RS.XXX</p>
+              <div class="flex">
+                <img class="size-7" src="./icons/pin.svg" alt="pin" />
+                <p class="text-gray-600">Location,Location</p>
+              </div>
             </div>
-            </div>
+          
+        </div>
+      </div>
     </div>
-    <script src="script.js">
-    </script>
+    </div>
+    <script src="script.js"></script>
     <script>
-    page = "cart"
-    main();
+      page = "cart";
+      main();
     </script>
-</body>
+  </body>
 </html>

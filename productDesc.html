@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="head-title">product detail</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="./src/output.css" /> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="./icons/box.png" type="image/png" />
 </head>
 <body class="flex justify-center">
-    <div class="main w-[80vw]"> 
+    <div class="main"> 
       <div id="nav-bar-replace"></div>
     <div class="showinfo">
         <div class="flex border border-neutral-600 m-1 rounded-xl" id="productdescription">
@@ -19,14 +20,14 @@
           <div class="size-96 flex m-3" id="productImage">
             
           </div>
-          <div class="heading flex flex-col justify-between m-6 w-[50vw] productTitle">
+          <div class="heading flex flex-col justify-between m-6 productTitle">
             <p class="font-bold text-2xl" id="product-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque quis laudantium ipsa possimus ea, recusandae reprehenderit quam consectetur. Quae.</p>
             <p class="my-2 text-3xl font-bold text-yellow-900" id="product-price">price</p>
             <div>
               <p>Quantity</p>
               <div class="flex my-2">
                 <button class="productBtn m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-yellow-900">Shop Now</button>
-                <button class="productBtn m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-blue-500">Add to Cart</button>
+                <button class="productBtn m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-blue-500"  onclick="addToCart()">Add to Cart</button>
               </div>
             </div>
           </div>

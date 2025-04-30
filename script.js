@@ -3,15 +3,17 @@ let page = "";
 function main() {
   if (page === "home") {
     homepage();
-  } else if(page==="products"){
+  } else if (page === "products") {
     product();
+  } else if (page === "cart") {
+    cartpage();
   }
 }
 
 // ==============NAV BAR==================
 let nav_rep = document.getElementById("nav-bar-replace");
 
-nav_rep.innerHTML = ` <nav class="relative">
+nav_rep.innerHTML = `<nav class="relative">
         <div
     class="nav flex w-full justify-between transition-all duration-1000"
   >
@@ -53,13 +55,11 @@ nav_rep.innerHTML = ` <nav class="relative">
         </ul>
     </div>
   </div>
-</nav>`
+</nav>`;
 
-
-
-let price = [];
-let productName = [];
-let productImage = [];
+let price = JSON.parse(localStorage.getItem("price")) || [];
+let productName = JSON.parse(localStorage.getItem("productName")) || [];
+let productImage = JSON.parse(localStorage.getItem("productImage")) || [];
 
 // ==============HAMBURGER==================
 const hamburger = document.querySelector(".hamburger");
@@ -81,7 +81,6 @@ hamburger.addEventListener("click", () => {
 cross.addEventListener("click", () => hamburgerClose());
 // ===========HOMEPAGE===============
 function homepage() {
-
   let cards = document.querySelector(".cards");
   let getData = async () => {
     let data = await fetch("./info.json");
@@ -108,6 +107,9 @@ function homepage() {
       price.push(item.cost);
       productName.push(item.productName);
       productImage.push(item.image);
+      localStorage.setItem("price", JSON.stringify(price));
+      localStorage.setItem("productName", JSON.stringify(productName));
+      localStorage.setItem("productImage", JSON.stringify(productImage));
     });
   };
   getData();
@@ -118,20 +120,18 @@ function homepage() {
 function home() {
   window.location.href = "index.html";
 }
-function productHref(){
+function productHref() {
   window.location.href = "productDesc.html";
 }
-function cartHref(){
+function cartHref() {
   window.location.href = "cart.html";
 }
-
-
 
 let description = [];
 async function getDescription() {
   let data = await fetch("./description.json");
   let response = await data.json();
-  // console.log(response[0].description) 
+  // console.log(response[0].description)
   response.forEach((item) => {
     description.push(item.description);
   });
@@ -172,8 +172,8 @@ function openmodel(name, price, image, desc) {
   const Pdesc = document.getElementById("productDes");
   const Pimage = document.getElementById("productImage");
   const pPrice = document.getElementById("product-price");
-  const toptitle=document.getElementById("head-title");
-  console.log(toptitle)
+  const toptitle = document.getElementById("head-title");
+  console.log(toptitle);
   toptitle.innerHTML = name;
   title.innerText = name;
   Pdesc.innerText = desc;
@@ -184,3 +184,51 @@ function openmodel(name, price, image, desc) {
 // =============== CART ====================
 
 let cart_href_sel = document.querySelector(".cart");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+console.log(cart);
+function addToCart() {
+  let cardID = localStorage.getItem("selectedProduct");
+  cart.push(cardID);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to Cart Succesfully !")
+}
+
+function cartpage() {
+  let cards = document.querySelector(".cartCards");
+  console.log(cards)
+
+  if(cart.length === 0){
+    console.log("empty");
+    cards.innerHTML = `<div class="flex flex-col justify-center items-center h-96">
+        <img src="./icons/icons8-cart-80.png" alt="cart">
+        <p>Your Cart is empty</p>
+        <p class="text-yellow-900 underline cursor-pointer" onclick="home()">Start shopping</p>
+    </div>`
+  }
+  else{
+  cart.forEach((product) => {
+    cards.innerHTML = cards.innerHTML +
+      ` <div class="flex p-6 my-1 rounded-xl border-b-2 border border-neutral-600">
+    <img
+          src="${productImage[product]}"
+          alt="icon"
+          class="product-image mx-2 h-32 w-32"
+          />
+          <div class="flex flex-col justify-between mx-2">
+          <p class="product-description-cart font-bold text-lg">${productName[product]}
+            </p>
+            <div class="productCardBottom flex justify-between">
+            <p class="font-bold text-yellow-900 text-2xl">RS.${price[product]}</p>
+            <div class="flex">
+            <img class="size-7" src="./icons/pin.svg" alt="pin" />
+            <p class="text-gray-600">Location,Location</p>
+            </div>
+            </div>
+            
+            </div>
+            </div>`;
+  });
+}
+  // console.log(productName)
+}
