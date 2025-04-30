@@ -8,6 +8,7 @@ nav{
     width: 100%;
 }
 
+
 .Pname{
     overflow: hidden;
     display: -webkit-box;
@@ -42,6 +43,12 @@ nav{
     }
     .main{
         width: 100vw;
+    }
+    input[type=password]{
+        width: 200px;
+    }
+    #username{
+        width: 200px;
     }
 }
 

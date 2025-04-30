@@ -12,7 +12,60 @@ function main() {
 
 // ==============NAV BAR==================
 let nav_rep = document.getElementById("nav-bar-replace");
+let islogin = localStorage.getItem("islogin") || 0;
 
+function navbar(){
+  if(islogin==1){
+    nav_rep.innerHTML = ` <nav class="relative">
+        <div
+    class="nav flex w-full justify-between transition-all duration-1000"
+  >
+    <div class="m-2 flex relative logo hover:cursor-pointer" onclick="home();hamburgerClose()">
+        <img src="./icons/box.png" class="size-10" alt="logo" />
+        <p class="p-2 logo-text font-bold text-xl">BAKAS</p>
+    </div>
+    <div
+      class="search transition-all ease-in rounded-full flex m-2 border border-neutral-400 h-12 overflow-hidden"
+    >
+    <img src="./icons/search.svg" class="size-6 m-3" />
+    <input
+        type="text"
+        placeholder="Enter the name of item"
+        class="search-input overflow-hidden p-3 outline-none"
+      />
+    </div>
+    <div class="options">
+        <ul class="flex">
+        <li class="home p-4 font-bold hover:underline hover:cursor-pointer" onclick="home()">Home</li>
+        <li class="cart p-4 font-bold hover:underline hover:cursor-pointer" onclick="cartHref()">Cart</li>
+        <div class="flex">
+            <img src="./icons/avatar.svg" alt="avatar">
+            <li class="Account py-4 font-bold hover:underline hover:cursor-pointer" onclick="">Account</li>
+        </div>
+    </ul>
+    </div>
+    
+    <div class="hamburger">
+        <img src="./icons/hamburger.svg" class="size-8 m-4" />
+    </div>
+    <div
+      class="absolute transition-all ease-in-out hamburger-menu bg-yellow-600 right-0 h-screen w-[50vw] opacity-0 -z-10"
+    >
+    <div class="cross absolute right-0">
+        <img src="./icons/x.svg" class="size-8 m-4" />
+      </div>
+      <ul>
+          <li class="home p-4 hover:bg-yellow-500" onclick="home();hamburgerClose()">Home</li>
+          <li class="cart p-4 hover:bg-yellow-500" onclick="cartHref()">Cart</li>
+          <div class="flex">
+            <img src="./icons/avatar.svg" alt="avatar">
+            <li class="Account py-4 font-bold hover:underline hover:cursor-pointer" onclick="">Account</li>
+        </div>
+        </ul>
+    </div>
+  </div>
+</nav>`
+  }else{
 nav_rep.innerHTML = `<nav class="relative">
         <div
     class="nav flex w-full justify-between transition-all duration-1000"
@@ -35,7 +88,8 @@ nav_rep.innerHTML = `<nav class="relative">
         <ul class="flex">
         <li class="home p-4 font-bold hover:underline hover:cursor-pointer" onclick="home()">Home</li>
         <li class="cart p-4 font-bold hover:underline hover:cursor-pointer" onclick="cartHref()">Cart</li>
-        <li class="contactUs p-4 font-bold hover:underline hover:cursor-pointer">Contact us</li>
+        <li class="Login p-4 font-bold hover:underline hover:cursor-pointer" onclick="loginHref()">Login</li>
+        <li class="signUp p-4 font-bold hover:underline hover:cursor-pointer" onclick="signHref()">Sign up</li>
     </ul>
     </div>
     
@@ -51,11 +105,14 @@ nav_rep.innerHTML = `<nav class="relative">
       <ul>
           <li class="home p-4 hover:bg-yellow-500" onclick="home();hamburgerClose()">Home</li>
           <li class="cart p-4 hover:bg-yellow-500" onclick="cartHref()">Cart</li>
-          <li class="contactUs p-4 hover:bg-yellow-500">Contact us</li>
+          <li class="Login p-4 hover:bg-yellow-500" onclick="loginHref()">Login</li>
+          <li class="signUp p-4 hover:bg-yellow-500" onclick="signHref()">Sign up</li>
         </ul>
     </div>
   </div>
-</nav>`;
+</nav>`;}
+}
+navbar();
 
 let price = JSON.parse(localStorage.getItem("price")) || [];
 let productName = JSON.parse(localStorage.getItem("productName")) || [];
@@ -125,6 +182,12 @@ function productHref() {
 }
 function cartHref() {
   window.location.href = "cart.html";
+}
+function loginHref() {
+  window.location.href = "login.html"
+}
+function signHref(){
+  window.location.href = "signup.html"
 }
 
 let description = [];
@@ -231,4 +294,66 @@ function cartpage() {
   });
 }
   // console.log(productName)
+}
+
+
+
+// ============other functions ===========
+function showPassword(){
+  let pw = document.getElementById("password");
+  let eye1 = document.getElementById("eyeopen");
+  // console.log(pw)
+  if(pw.type==="password"){
+    pw.type="text"
+    eye1.src = "./icons/eyeclose.svg"
+  }else{
+    pw.type = "password"
+    eye1.src = "./icons/eyeopen.svg"
+    
+  }
+}
+function showPasswordverify(){
+  let pwv = document.getElementById("passwordver");
+  let eye2 = document.getElementById("eyeopenv");
+  if(pwv.type==="password"){
+    pwv.type="text"
+    eye2.src = "./icons/eyeclose.svg"
+  }else{
+    pwv.type = "password"
+    eye2.src = "./icons/eyeopen.svg"
+  }
+
+}
+
+function signup(){
+  let pw = document.getElementById("password");
+  let pwv = document.getElementById("passwordver");
+  let uname = document.getElementById("username").value;
+  if(pw.value == ''){
+    alert("Enter the details");
+  } else if(pw.value === pwv.value){
+    alert("Login Succesful!");
+    localStorage.setItem("username", uname);
+    localStorage.setItem("password", pw.value);
+    loginHref();
+  }
+  else{
+    alert("Passwords donot match")
+  }
+}
+
+function login(){
+  let pw = document.getElementById("password");
+  let uname = document.getElementById("username");
+  let usernameRecord = localStorage.getItem("username");
+  let passwordRecord = localStorage.getItem("password");
+  if(usernameRecord == uname.value && passwordRecord==pw.value){
+      alert("login successful");
+      home();
+      localStorage.setItem("islogin", 1);
+      navbar();
+  }
+  else{
+    alert("Invalid password or username");
+  }
 }
