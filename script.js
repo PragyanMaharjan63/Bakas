@@ -147,7 +147,7 @@ function homepage() {
     response.forEach((item) => {
       cards.innerHTML =
         cards.innerHTML +
-        ` <div class="card${item.id} m-1 rounded-xl border border-neutral-400 break-words overflow-hidden w-72 hover:cursor-pointer" onClick="productDescription(${item.id})">
+        ` <div class="card${item.id} m-1 grow rounded-xl border border-neutral-400 break-words overflow-hidden w-72 hover:cursor-pointer" onClick="productDescription(${item.id})">
       <div class="flex justify-center">
       <img src="${item.image}" class="h-52 w-52 m-2 object-contain">
       </div>

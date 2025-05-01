@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 /* npx @tailwindcss/cli -i style.css -o ./src/output.css --watch */
 
 nav{
