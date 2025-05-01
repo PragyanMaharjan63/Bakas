@@ -260,7 +260,7 @@ function addToCart() {
 function cartpage() {
   let cards = document.querySelector(".cartCards");
   console.log(cards)
-
+  let i=0;
   if(cart.length === 0){
     console.log("empty");
     cards.innerHTML = `<div class="flex flex-col justify-center items-center h-96">
@@ -271,10 +271,12 @@ function cartpage() {
   }
   else{
   cart.forEach((product) => {
-    cards.innerHTML = cards.innerHTML +
-      ` <div class="flex p-6 my-1 rounded-xl border-b-2 border border-neutral-600" onclick="productDescription(${product})">
-    <img
-          src="${productImage[product]}"
+    cards.innerHTML = cards.innerHTML + ` 
+    
+    <div class="relative">
+          <input class="absolute top-0 left-0 m-3 size-4 selProd" type="checkbox" name="selectprod" id="checkbox${[product]}" onclick="animationDel();getid(${i})">
+          <div class="flex p-6 my-1 rounded-xl border-b-2 border border-neutral-600" onclick="productDescription(${product})">
+         <img src="${productImage[product]}"
           alt="icon"
           class="product-image mx-2 h-32 w-32"
           />
@@ -288,9 +290,10 @@ function cartpage() {
             <p class="text-gray-600">Location,Location</p>
             </div>
             </div>
-            
+            </div>
             </div>
             </div>`;
+      i++;
   });
 }
   // console.log(productName)
@@ -356,4 +359,25 @@ function login(){
   else{
     alert("Invalid password or username");
   }
+}
+
+function animationDel(){
+  let btn = document.getElementById("Delete");
+  let selected = document.querySelectorAll(".selProd");
+  let selArr = Array.from(selected);
+
+  if(selArr.every(ch => !ch.checked)){
+    btn.classList.add("opacity-0","bottom-0");
+    btn.classList.remove("bottom-4");
+  }else{
+    btn.classList.remove("opacity-0","bottom-0");
+    btn.classList.add("bottom-4");
+  }
+ 
+}
+function getid(selectedID){
+  console.log(selectedID)
+  cart.splice(selectedID,1);
+  console.log(cart)
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
