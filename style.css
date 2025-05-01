@@ -50,6 +50,21 @@ nav{
     #username{
         width: 200px;
     }
+    #productdescription{
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: hidden;
+    }
+    .productTitle{
+        width: 100vw;
+        margin: 0;
+    }
+    #productImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 }
 
 @media (max-width:700px) {

@@ -14,8 +14,8 @@ function main() {
 let nav_rep = document.getElementById("nav-bar-replace");
 let islogin = localStorage.getItem("islogin") || 0;
 
-function navbar(){
-  if(islogin==1){
+function navbar() {
+  if (islogin == 1) {
     nav_rep.innerHTML = ` <nav class="relative">
         <div
     class="nav flex w-full justify-between transition-all duration-1000"
@@ -64,9 +64,9 @@ function navbar(){
         </ul>
     </div>
   </div>
-</nav>`
-  }else{
-nav_rep.innerHTML = `<nav class="relative">
+</nav>`;
+  } else {
+    nav_rep.innerHTML = `<nav class="relative">
         <div
     class="nav flex w-full justify-between transition-all duration-1000"
   >
@@ -110,7 +110,8 @@ nav_rep.innerHTML = `<nav class="relative">
         </ul>
     </div>
   </div>
-</nav>`;}
+</nav>`;
+  }
 }
 navbar();
 
@@ -146,27 +147,29 @@ function homepage() {
     response.forEach((item) => {
       cards.innerHTML =
         cards.innerHTML +
-        ` <div class="card m-1 rounded-xl  border border-neutral-400 break-words overflow-hidden w-72 hover:cursor-pointer" onClick="productDescription(${item.id})">
-        <div class="flex justify-center">
-        <img src="${item.image}" class="size-52 m-2">
-        </div>
-        <div class="m-2">    
-        <p class="font-bold m-2 Pname">${item.productName}</p>
-        <p class="m-2 text-2xl text-yellow-900 font-bold">RS.${item.cost}</p>
-          <div class="flex m-2">
-            <img src="./icons/pin.svg" alt="">
-            <p class="text-gray-600">
-              ${item.location}
-            </p>
-          </div>
-        </div>
-        </div>`;
-      price.push(item.cost);
-      productName.push(item.productName);
-      productImage.push(item.image);
-      localStorage.setItem("price", JSON.stringify(price));
-      localStorage.setItem("productName", JSON.stringify(productName));
-      localStorage.setItem("productImage", JSON.stringify(productImage));
+        ` <div class="card${item.id} m-1 rounded-xl border border-neutral-400 break-words overflow-hidden w-72 hover:cursor-pointer" onClick="productDescription(${item.id})">
+      <div class="flex justify-center">
+      <img src="${item.image}" class="h-52 w-52 m-2 object-contain">
+      </div>
+      <div class="m-2">    
+      <p class="font-bold m-2 Pname">${item.productName}</p>
+      <p class="m-2 text-2xl text-yellow-900 font-bold">RS.${item.cost}</p>
+      <div class="flex m-2">
+      <img src="./icons/pin.svg" alt="">
+      <p class="text-gray-600">
+      ${item.location}
+      </p>
+      </div>
+      </div>
+      </div>`;
+      if (!productName.includes(item.productName)) {
+        price.push(item.cost);
+        productName.push(item.productName);
+        productImage.push(item.image);
+        localStorage.setItem("price", JSON.stringify(price));
+        localStorage.setItem("productName", JSON.stringify(productName));
+        localStorage.setItem("productImage", JSON.stringify(productImage));
+      }
     });
   };
   getData();
@@ -184,10 +187,10 @@ function cartHref() {
   window.location.href = "cart.html";
 }
 function loginHref() {
-  window.location.href = "login.html"
+  window.location.href = "login.html";
 }
-function signHref(){
-  window.location.href = "signup.html"
+function signHref() {
+  window.location.href = "signup.html";
 }
 
 let description = [];
@@ -241,7 +244,7 @@ function openmodel(name, price, image, desc) {
   title.innerText = name;
   Pdesc.innerText = desc;
   pPrice.innerText = "RS." + price;
-  Pimage.innerHTML = `<img src="${image}" >`;
+  Pimage.innerHTML = `<img src="${image}" class="object-contain w-96">`;
 }
 
 // =============== CART ====================
@@ -254,37 +257,44 @@ function addToCart() {
   let cardID = localStorage.getItem("selectedProduct");
   cart.push(cardID);
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Added to Cart Succesfully !")
+  alert("Added to Cart Succesfully !");
 }
 
 function cartpage() {
   let cards = document.querySelector(".cartCards");
-  console.log(cards)
-  let i=0;
-  if(cart.length === 0){
+  console.log(cards);
+  let i = 0;
+  if (cart.length === 0) {
     console.log("empty");
     cards.innerHTML = `<div class="flex flex-col justify-center items-center h-96">
         <img src="./icons/icons8-cart-80.png" alt="cart">
         <p>Your Cart is empty</p>
         <p class="text-yellow-900 underline cursor-pointer" onclick="home()">Start shopping</p>
-    </div>`
-  }
-  else{
-  cart.forEach((product) => {
-    cards.innerHTML = cards.innerHTML + ` 
+    </div>`;
+  } else {
+    cart.forEach((product) => {
+      cards.innerHTML =
+        cards.innerHTML +
+        ` 
     
     <div class="relative">
-          <input class="absolute top-0 left-0 m-3 size-4 selProd" type="checkbox" name="selectprod" id="checkbox${[product]}" onclick="animationDel();getid(${i})">
+          <input class="absolute top-0 left-0 m-3 size-4 selProd" type="checkbox" name="selectprod" id="checkbox${[
+            product,
+          ]}" onclick="animationDel();getid(${i})">
           <div class="flex p-6 my-1 rounded-xl border-b-2 border border-neutral-600" onclick="productDescription(${product})">
          <img src="${productImage[product]}"
           alt="icon"
           class="product-image mx-2 h-32 w-32"
           />
           <div class="flex flex-col justify-between mx-2">
-          <p class="product-description-cart font-bold text-lg">${productName[product]}
+          <p class="product-description-cart font-bold text-lg">${
+            productName[product]
+          }
             </p>
             <div class="productCardBottom flex justify-between">
-            <p class="font-bold text-yellow-900 text-2xl">RS.${price[product]}</p>
+            <p class="font-bold text-yellow-900 text-2xl">RS.${
+              price[product]
+            }</p>
             <div class="flex">
             <img class="size-7" src="./icons/pin.svg" alt="pin" />
             <p class="text-gray-600">Location,Location</p>
@@ -294,90 +304,107 @@ function cartpage() {
             </div>
             </div>`;
       i++;
-  });
-}
+    });
+  }
   // console.log(productName)
 }
 
-
-
 // ============other functions ===========
-function showPassword(){
+function showPassword() {
   let pw = document.getElementById("password");
   let eye1 = document.getElementById("eyeopen");
   // console.log(pw)
-  if(pw.type==="password"){
-    pw.type="text"
-    eye1.src = "./icons/eyeclose.svg"
-  }else{
-    pw.type = "password"
-    eye1.src = "./icons/eyeopen.svg"
-    
+  if (pw.type === "password") {
+    pw.type = "text";
+    eye1.src = "./icons/eyeclose.svg";
+  } else {
+    pw.type = "password";
+    eye1.src = "./icons/eyeopen.svg";
   }
 }
-function showPasswordverify(){
+function showPasswordverify() {
   let pwv = document.getElementById("passwordver");
   let eye2 = document.getElementById("eyeopenv");
-  if(pwv.type==="password"){
-    pwv.type="text"
-    eye2.src = "./icons/eyeclose.svg"
-  }else{
-    pwv.type = "password"
-    eye2.src = "./icons/eyeopen.svg"
+  if (pwv.type === "password") {
+    pwv.type = "text";
+    eye2.src = "./icons/eyeclose.svg";
+  } else {
+    pwv.type = "password";
+    eye2.src = "./icons/eyeopen.svg";
   }
-
 }
 
-function signup(){
+function signup() {
   let pw = document.getElementById("password");
   let pwv = document.getElementById("passwordver");
   let uname = document.getElementById("username").value;
-  if(pw.value == ''){
+  if (pw.value == "") {
     alert("Enter the details");
-  } else if(pw.value === pwv.value){
+  } else if (pw.value === pwv.value) {
     alert("Login Succesful!");
     localStorage.setItem("username", uname);
     localStorage.setItem("password", pw.value);
     loginHref();
-  }
-  else{
-    alert("Passwords donot match")
+  } else {
+    alert("Passwords donot match");
   }
 }
 
-function login(){
+function login() {
   let pw = document.getElementById("password");
   let uname = document.getElementById("username");
   let usernameRecord = localStorage.getItem("username");
   let passwordRecord = localStorage.getItem("password");
-  if(usernameRecord == uname.value && passwordRecord==pw.value){
-      alert("login successful");
-      home();
-      localStorage.setItem("islogin", 1);
-      navbar();
-  }
-  else{
+  if (usernameRecord == uname.value && passwordRecord == pw.value) {
+    alert("login successful");
+    home();
+    localStorage.setItem("islogin", 1);
+    navbar();
+  } else {
     alert("Invalid password or username");
   }
 }
 
-function animationDel(){
+function animationDel() {
   let btn = document.getElementById("Delete");
   let selected = document.querySelectorAll(".selProd");
   let selArr = Array.from(selected);
 
-  if(selArr.every(ch => !ch.checked)){
-    btn.classList.add("opacity-0","bottom-0");
+  if (selArr.every((ch) => !ch.checked)) {
+    btn.classList.add("opacity-0", "bottom-0");
     btn.classList.remove("bottom-4");
-  }else{
-    btn.classList.remove("opacity-0","bottom-0");
+  } else {
+    btn.classList.remove("opacity-0", "bottom-0");
     btn.classList.add("bottom-4");
   }
- 
 }
-function getid(selectedID){
-  console.log(selectedID)
-  cart.splice(selectedID,1);
-  console.log(cart)
+function getid(selectedID) {
+  console.log(selectedID);
+  cart.splice(selectedID, 1);
+  console.log(cart);
   localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// ============Search=================
+let input = document.querySelector(".search-input");
+console.log(input);
+input.addEventListener("keydown", (event) => checkEnter(event));
+
+function checkEnter(event) {
+  if (event.key === "Enter") {
+    searchFunction();
+  }
+}
+
+function searchFunction() {
+  for (let i = 0; i < productName.length; i++) {
+    let cards = document.getElementsByClassName(`card${i}`);
+    data = cards[0];
+    let name = productName[i].toLowerCase();
+    if (!name.includes(input.value.toLowerCase())) {
+      data.classList.add("hidden");
+    } else {
+      data.classList.remove("hidden");
+    }
+  }
 }
