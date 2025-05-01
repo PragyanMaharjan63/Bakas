@@ -399,9 +399,9 @@ function checkEnter(event) {
 function searchFunction() {
   for (let i = 0; i < productName.length; i++) {
     let cards = document.getElementsByClassName(`card${i}`);
-    data = cards[0];
+    data = cards[0];                                    // cards[0] because the cards give the HTML collection which is object but array but not both.
     let name = productName[i].toLowerCase();
-    if (!name.includes(input.value.toLowerCase())) {
+    if (!name.includes(input.value.toLowerCase())) {    //if doesnt include then adds hidden class
       data.classList.add("hidden");
     } else {
       data.classList.remove("hidden");
