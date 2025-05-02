@@ -145,7 +145,7 @@ function homepage() {
   let getData = async () => {
     let data = await fetch("./info.json");
     let response = await data.json();
-    console.log(response);
+    // console.log(response);
     response.forEach((item) => {
       cards.innerHTML =
         cards.innerHTML +
@@ -227,7 +227,7 @@ function product() {
     let price = localStorage.getItem("selectedProductPrice");
     let image = localStorage.getItem("selectedProductImage");
     let desc = localStorage.getItem("selectedProductDescription");
-    console.log(cardID);
+    // console.log(cardID);
     openmodel(name, price, image, desc);
   };
 }
@@ -239,12 +239,12 @@ function openmodel(name, price, image, desc) {
   // info.classList.remove("hidden");
 
   const title = document.getElementById("product-title");
-  console.log(title);
+  // console.log(title);
   const Pdesc = document.getElementById("productDes");
   const Pimage = document.getElementById("productImage");
   const pPrice = document.getElementById("product-price");
   const toptitle = document.getElementById("head-title");
-  console.log(toptitle);
+  // console.log(toptitle);
   toptitle.innerHTML = name;
   title.innerText = name;
   Pdesc.innerText = desc;
@@ -257,7 +257,7 @@ function openmodel(name, price, image, desc) {
 let cart_href_sel = document.querySelector(".cart");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-console.log(cart);
+// console.log(cart);
 function addToCart() {
   let cardID = localStorage.getItem("selectedProduct");
   cart.push(cardID);
@@ -267,10 +267,10 @@ function addToCart() {
 
 function cartpage() {
   let cards = document.querySelector(".cartCards");
-  console.log(cards);
+  // console.log(cards);
   let i = 0;
   if (cart.length === 0) {
-    console.log("empty");
+    // console.log("empty");
     cards.innerHTML = `<div class="flex flex-col justify-center items-center h-96">
         <img src="./icons/icons8-cart-80.png" alt="cart">
         <p>Your Cart is empty</p>
@@ -384,15 +384,15 @@ function animationDel() {
   }
 }
 function getid(selectedID) {
-  console.log(selectedID);
+  // console.log(selectedID);
   cart.splice(selectedID, 1);
-  console.log(cart);
+  // console.log(cart);
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 // ============Search=================
 let input = document.querySelector(".search-input");
-console.log(input);
+// console.log(input);
 input.addEventListener("keydown", (event) => checkEnter(event));
 
 function checkEnter(event) {
@@ -422,9 +422,9 @@ function checkout(){
   let productImg = localStorage.getItem("selectedProductImage");
   let title = document.getElementById("product-title-checkout");
   let productPrice = document.getElementById("product-price-checkout");
-  console.log(id)
-  console.log(price[id])
-  title.innerText=productName[id]
-  productPrice.innerText= "Rs." + price[id]
+  // console.log(id)
+  // console.log(price[id])
+  title.innerText = productName[id]
+  productPrice.innerText = "Rs." + price[id]
   image.innerHTML = `<img src="${productImg}" alt="default">`
 }
