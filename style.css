@@ -141,6 +141,11 @@ nav{
         display: flex;
         flex-direction: column;
     }
-    
+    .productBtn{
+        margin: 0;
+    }
+    .productTitle{
+        margin: 0;
+    }
 }
 
