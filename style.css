@@ -113,9 +113,7 @@ nav{
     .heading{
         margin: 4px;
     }
-    .productBtn{
-        margin: 0px;
-    }
+    
 }
 
 @media (max-width: 425px){
@@ -146,6 +144,10 @@ nav{
     }
     .productTitle{
         margin: 0;
+    }
+    #productdescription{
+        margin: 4px;
+        padding: 0;
     }
 }
 
