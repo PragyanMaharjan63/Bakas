@@ -7,6 +7,8 @@ function main() {
     product();
   } else if (page === "cart") {
     cartpage();
+  }else if(page==="checkout"){
+    checkout();
   }
 }
 
@@ -191,6 +193,9 @@ function loginHref() {
 }
 function signHref() {
   window.location.href = "signup.html";
+}
+function checkoutHref(){
+  window.location.href = "checkout.html";
 }
 
 let description = [];
@@ -401,10 +406,25 @@ function searchFunction() {
     let cards = document.getElementsByClassName(`card${i}`);
     data = cards[0];                                    // cards[0] because the cards give the HTML collection which is object but array but not both.
     let name = productName[i].toLowerCase();
-    if (!name.includes(input.value.toLowerCase())) {    //if doesnt include then adds hidden class
-      data.classList.add("hidden");
+        if (!name.includes(input.value.toLowerCase())) {    //if doesnt include then adds hidden class
+          data.classList.add("hidden");
     } else {
       data.classList.remove("hidden");
     }
   }
+}
+
+
+// ===========Checkout page==========
+function checkout(){
+  let id = localStorage.getItem("selectedProduct")
+  let image = document.getElementById("productImage")
+  let productImg = localStorage.getItem("selectedProductImage");
+  let title = document.getElementById("product-title-checkout");
+  let productPrice = document.getElementById("product-price-checkout");
+  console.log(id)
+  console.log(price[id])
+  title.innerText=productName[id]
+  productPrice.innerText= "Rs." + price[id]
+  image.innerHTML = `<img src="${productImg}" alt="default">`
 }

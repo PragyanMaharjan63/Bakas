@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="shortcut icon" href="./icons/box.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center">
+    <div class="main">
+        <div id="nav-bar-replace"></div>
+        <div class="cont flex grow outline outline-1 rounded-lg p-4 m-1">
+
+            <div id="productImage">
+                <img src="./images/default.png" alt="default">
+            </div> 
+            <div class="grow">
+                <p class="p-2" class="font-bold text-2xl" id="product-title-checkout">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, sit! Repellendus est cum consequatur nemo nulla harum at expedita molestias.</p>
+                <p class="p-2" class="text-3xl font-bold text-yellow-900" id="product-price-checkout">Rs. XXX</p>
+                <p class="p-2">Description:</p>
+                <p class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ab magnam minus molestiae assumenda voluptate voluptatibus dicta, fuga, quisquam est, blanditiis consequuntur omnis rerum corporis eos esse architecto libero nostrum quos!</p>
+                <div> 
+                    <label for="location" class="m-2">Choose your pickup location</label>
+                    <select name="location" class="w-3/4" id="location">
+                        <option value="location1">location1</option>
+                        <option value="location2">location2</option>
+                        <option value="location3">location3</option>
+                        <option value="location4">location4</option>
+                        <option value="location5">location5</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="p-2">Pick Payment Method</p>
+                    <div class="payment flex">
+                        <div>
+
+                            <input type="radio" class="hidden peer" name="payment" id="online">
+                            <label for="online" class="bg-neutral-200 w-20 p-1 m-2 flex flex-col items-center justify-center rounded-lg peer-checked:bg-blue-200 peer-checked:outline peer-checked:outline-blue-300">
+                                <img src="./icons/online.svg" class="size-8 p-1 peer-checked:size-7" alt="online">
+                                <p class="mx-3">Online Payment</p>
+                            </label>
+                        </div>  
+                            <div>
+
+                                <input type="radio" class="hidden peer" name="payment" id="COD">
+                                <label for="COD" class="bg-neutral-200 w-20 p-1 m-2 flex flex-col items-center justify-center rounded-lg peer-checked:bg-blue-200 peer-checked:outline peer-checked:outline-blue-300 ">
+                                    <img src="./icons/cash.svg" class="size-8 p-1" alt="cash">
+                                    <p class="mx-3">Cash on Delivery</p>
+                                </label>
+                            </div>
+                    </div>
+                </div>
+                <button class="productBtn m-1 p-3 w-56 text-white rounded-lg hover:cursor-pointer bg-yellow-900" onclick="alert('order Placed')">Place Order</button>
+
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+    <script>
+        page = "checkout";
+        main()
+    </script>
+</body>
+</html>
